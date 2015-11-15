@@ -28,7 +28,7 @@ public class Order{
     {
        // list=new ArrayList<OrderItem>();
     }
-    public void removeItem(int id, int count)
+    public void removeCountItem(int id, int count)
     {
         for(int i=0;i<list.size();i++)
         {
@@ -51,7 +51,7 @@ public class Order{
         }
         return false;
     }
-    public void changeItem(int id,int count)
+    public void addCountItem(int id,int count)
     {
         for(int i=0;i<list.size();i++)
         {

@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14.11.2015, 12:57:07
+    Author     : SofySmo
+*/
+
+div#auth
+{
+    margin-left: auto;
+    margin-right: auto;
+    border:1px #ac7fa8;
+     padding: 15px;
+     //border: 1px #ac7fa8 solid;
+     border-radius: 5px;
+     width: 300px;
+     margin-top: 100px;
+     margin-bottom: 100px;
+     background:#eae9e9;
+     
+}
+h2
+{
+color:#514f51;
+font-size: 18px;
+text-align: center;
+}
+label
+{
+    color:#514f51;
+}
+#text_error{
+    color:red;
+    font-size: 10px;
+    
+}

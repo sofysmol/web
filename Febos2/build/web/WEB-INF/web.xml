@@ -12,9 +12,25 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>SingInServlet</servlet-name>
+        <servlet-class>ui.SingInServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignOutServlet</servlet-name>
+        <servlet-class>ui.SignOutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SingInServlet</servlet-name>
+        <url-pattern>/SingInServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignOutServlet</servlet-name>
+        <url-pattern>/SignOutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -24,39 +40,65 @@
     <welcome-file-list>
         <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>
+                info
+            </web-resource-name>
+            <url-pattern>/PersonalAccount.jsp</url-pattern>
+            <url-pattern>/CartPage.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>tomcat</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-role>
+        <role-name>tomcat</role-name>
+    </security-role>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/SingIn.jsp</form-login-page>
+            <form-error-page>/SingIn.jsp?Retry=yes</form-error-page>
+        </form-login-config>
+    </login-config>
     <servlet>
         <servlet-name>CreatePage</servlet-name>
         <servlet-class>ui.CreatePage</servlet-class>
         <init-param>
-        <param-name>lang</param-name>
-        <param-value>de</param-value>
+            <param-name>lang</param-name>
+            <param-value>de</param-value>
         </init-param>
         <init-param>
-        <param-name>container</param-name>
-        <param-value>0</param-value>
+            <param-name>container</param-name>
+            <param-value>0</param-value>
         </init-param>
         <init-param>
-        <param-name>index</param-name>
-        <param-value>0</param-value>
+            <param-name>index</param-name>
+            <param-value>0</param-value>
         </init-param>
         <init-param>
-        <param-name>vlad</param-name>
-        <param-value>0</param-value>
+            <param-name>vlad</param-name>
+            <param-value>0</param-value>
         </init-param>
-        
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>CreatePage</servlet-name>
         <url-pattern>/CreatePage</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>AddItemServlet</servlet-name>
-        <servlet-class>ui.AddItemServlet</servlet-class>        
+        <servlet-class>ui.AddItemServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>AddItemServlet</servlet-name>
         <url-pattern>/AddItemServlet</url-pattern>
     </servlet-mapping>
+    
+     <context-param>
+            <param-name>default_tab</param-name>
+            <param-value>0</param-value>
+    </context-param>
 </web-app>

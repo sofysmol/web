@@ -26,18 +26,6 @@
 </c:choose>
 <fmt:setBundle var="en" basename="page_product_en" />
 <fmt:setBundle basename="page_product_${lang}" />
-
-<c:forEach var="cookies" items="${cookie}">
-    <c:if test="${cookies.key == 'user'}">
-        <c:set var="user" value="true"/>
-</c:if>
-</c:forEach>
-    <c:if test="${empty user}">
-           <c:redirect url="Authorization.jsp?lang=${lang}"/>
-    </c:if>
-<c:if test="${empty user}">
-    <c:redirect url="Authorization.jsp?lang=${lang}"/>
-</c:if>
 <!DOCTYPE html>
 <html>
     <head>
@@ -104,44 +92,12 @@
                                                 <strong><fmt:message key="count"/></strong>
 
                                                 <input type="number" id="count_${i}" min="1" max="10" step="1" class="count" value="${item.getCount()}"
-                                                       onchange="onchangeCount(${i},${art.price});" >
+                                                       onchange="onchangeCount(${i},${item.getId()},${art.price},${item.getCount()});" >
                                                   </div>
                                                 <c:set var="i" value="${i+1}"/>
                                         </c:forEach>
                                     </c:otherwise>
                                 </c:choose>
-                           <%-- <c:forEach var="cookies" items="${cookie}">
-                                
-                                <c:if test="${fn:indexOf(cookies.key,'#') eq 0}">
-                                    
-                                    <c:catch>
-                                        <fmt:parseNumber var="id" type="number" value="${fn:substring(cookies.key,1,fn:length(cookies.key))}"/>
-                                    </c:catch>
-                                    <c:if test="${catchException eq null}">
-                                        
-                                        <c:set var="indexFile" value="${id/100}"/>
-                                        <c:set var="indexPicture" value="${id%100}"/>
-                                        <c:set var="art" value="${ff:getArt(indexFile,indexPicture)}"/>
-                                        <c:set var="sum" value="${sum+art.price}"/>
-                                        
-                                        
-                                        <div class="product grid-item choose_product" id="product_${i}">
-                                            <span id="cookie_${i}" style="display:none"><c:out value="${cookies.key}"/></span>
-                                            <span id="oldcount_${i}" style="display:none">${cookies.value.value}</span>
-                                            <span class="cross" onclick="refuseToBuy(${i},${art.price},${cookies.value.value});">X</span>
-                                            <br>
-                                            <script type="text/javascript"> addCost(${art.price},${cookies.value.value});</script>
-                                            <c:import url="product.jsp?lang=${lang}&name=${art.name}&author=${art.author}&path=${art.pathartwork}&price=${art.price}"/>   
-                                            <strong><fmt:message key="count"/></strong>
-                                            
-                                            <input type="number" id="count_${i}" min="1" max="10" step="1" class="count" value="${cookies.value.value}"
-                                                   onchange="onchangeCount(${i},${art.price});" >
-                                              </div>
-                                            <c:set var="i" value="${i+1}"/>
-                                    </c:if>
-                                    <c:set var="catchException" value="${null}"/> 
-                                </c:if>       
-                            </c:forEach>     --%>
                             </div>
                            
                         </div>

@@ -11,16 +11,7 @@
 <%@page language="java" import="java.util.ResourceBundle"%>
 <%@page language="java" import="java.util.ArrayList"%>
 <%@page language="java" import="domain.*"%>
-<%--public Cookie findCookie(Cookie[] cookies,String name)
-{
-       if (cookies != null) {
-                for (int i = 0; i < cookies.length; i++) {
-                    if (cookies[i].getName().equals (name)) {
-                        return cookies[i]; 
-                    }
-                } 
 
-}--%>  
  <% 
      Cookie cookies[]=request.getCookies();
      String lang=request.getParameter("lang");    

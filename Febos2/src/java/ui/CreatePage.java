@@ -53,6 +53,11 @@ public class CreatePage extends HttpServlet {
             ResourceBundle res=ResourceBundle.getBundle("page_product", locale);
             ResourceBundle resEn=ResourceBundle.getBundle("page_product", localeEn);
             
+            int tab=Integer.parseInt(request.getSession()
+               .getServletContext()
+               .getInitParameter("default_tab"));
+            
+            
             String indexPictureS = request.getParameter("index");
             int indexPicture;
             if(indexPictureS==null)
@@ -94,13 +99,19 @@ public class CreatePage extends HttpServlet {
             picture[5]=art.getTechnique();
             picture[6]=art.getCountry();
             
-           
+             boolean user=false;
+            if(request.getRemoteUser()!=null)
+           {
+              user=true;
+           }
+        
 
             sb.append("<!DOCTYPE html>"
                     + "<html><head><title>"+res.getString("title_site")+"</title><meta charset=\"UTF-8\">"
                     + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
                     + "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/newcss.css\">"
                     + "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/hat_page.css\">"
+                    + "<script type=\"text/javascript\" src=\"js/auth.js\"></script>"
                     + "<script type=\"text/javascript\" src=\"js/pageJS.js\"></script>"
                     + "<script type=\"text/javascript\" src=\"js/buy_button.js\"></script>"
                     + "</head><body><div id=\"main_conteiner\">"
@@ -112,7 +123,18 @@ public class CreatePage extends HttpServlet {
                     +"<div id=\"right_block\">");
                     //for(int i=0; res.containsKey("lang_"+i); i++)
                       //  {
-                            sb.append("<a href=\"CartPage.jsp\"><span>"+ res.getString("header_1")+"</span></a> ");
+                    if(!user)
+                    {
+                           sb.append( "<a href=\"PersonalAccount.jsp\"><span>"+res.getString("header_0")+"</span></a>/");
+                           sb.append("<a href=\"Authorization.jsp\"><span>"+res.getString("header_3")+"</span></a>");
+                    }
+                    else 
+                            {
+                                sb.append(res.getString("header_2")+"<a href=\"PersonalAccount.jsp\"><span>"+request.getRemoteUser()+"</span></a>");
+                                sb.append("<a href=\""+request.getContextPath()+"\" onclick=\"singout();\"><span>"+res.getString("header_4")+"</span></a>");
+                            }
+                            
+                            sb.append("<br><a href=\"CartPage.jsp\"><span>"+ res.getString("header_1")+"</span></a> ");
                         //}
                                     
                         sb.append("<div>"
@@ -176,7 +198,7 @@ public class CreatePage extends HttpServlet {
                 
             }
             //onclick=\"setCookie('#"+indexFile*100+indexPicture+"','1');\"
-            sb.append("<div id=\"buy_div\"><span>"+  Integer.toString(art.getPrice())+"&#36  </span>"
+            sb.append("<div id=\"buy_div\"><span>&#36 "+  Integer.toString(art.getPrice())+"  </span>"
                     
                     + "<span class=\"buy_product\" onclick=\"buyButtonFuck('"+indexFile*100+indexPicture+"');\">"+res.getString("buy")+"</span></div>"
                     + "</div><div id=\"bottom_list\"><ul class=\"horizontal_list\">"
@@ -185,6 +207,7 @@ public class CreatePage extends HttpServlet {
                     + "<li  onclick=show2()>"
                     + "<span id=\"reviews\" class=\"navigerion-bar-span\">"+res.getString("reviews")+"</span></li>"
                     + "</ul></div>"
+                    
                     + "<div class=\"product-attributs\" id=\"full_info\" >");
             
             for(int i=0;res.containsKey("info_product_"+i)&&picture.length>i; i++)
@@ -203,6 +226,7 @@ public class CreatePage extends HttpServlet {
                         +"</div>");
             }
             sb.append("</div></div></div></div>"
+                    + " <script>setDefaultTab("+tab+");</script>"
                     + "<div class=\"endpage\""
                     + "<p>&copy;2015 Фебос.</p>"
                     + "</div>"

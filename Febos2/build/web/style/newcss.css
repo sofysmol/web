@@ -7,7 +7,9 @@ and open the template in the editor.
     Created on : 04.10.2015, 12:47:51
     Author     : SofySmo
 */
-
+div.for_inline{
+    //white-space:nowrap;
+}
 div{
    //border: 1px solid #ac7fa8;
     //margin: 3px;
@@ -39,9 +41,7 @@ ul.horizontal_list li{
     display: inline; /* Отображать как строчный элемент */
     
 }
-div.for_inline{
-    white-space:nowrap;
-}
+
 div#shopfilter{
     width: 150px;
     margin-top: 0px;
@@ -83,7 +83,7 @@ div.product-attributs strong{
     background: white;
 }
 div#full_info{
-    display: none;
+    //display: none;
   
 }
 p.review_text{
@@ -120,7 +120,8 @@ div.product-attributs#main_info{
     float:right;
     margin-right: 50px;
    // margin-top: 0px;
-    
+   white-space:normal;
+    float:top;
     margin-left: 10px;
 }
 div.product-attributs#shot_info{

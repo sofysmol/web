@@ -5,8 +5,10 @@
 <link rel="stylesheet" type="text/css" href="newcss.css">
 --%>
 
+<%@page import="java.security.Principal"%>
 <%@page import="java.util.ResourceBundle"%>
 <%@page import="java.util.Locale"%>
+<%@page import="domain.Person"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 String lang=request.getParameter("lang");    
@@ -15,17 +17,14 @@ String lang=request.getParameter("lang");
             
            ResourceBundle res=ResourceBundle.getBundle("page_product", locale);
            String parant=request.getParameter("parant");
-           Cookie cookies[]=request.getCookies();
-           String cookieName="user";
+           
            boolean user=false;
-           if (cookies != null) {
-                for (int i = 0; i < cookies.length; i++) {
-                    if (cookies[i].getName().equals (cookieName)) {
-                        user=true;
-                        break;
-                    }
-                } 
+           
+           if(request.getRemoteUser()!=null)
+           {
+              user=true;
            }
+          
            
            %>
 <!DOCTYPE html>
@@ -34,20 +33,24 @@ String lang=request.getParameter("lang");
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style/franklin-gothic-demi-cond.ttf">
         <link rel="stylesheet" type="text/css" href="style/hat_page.css">
+        <script type="text/javascript" src="js/auth.js"></script>
     </head>
     <body>
         <div id="hat">
             
              <div id="right_block">
-                 <a href="CartPage.jsp"><span><%=res.getString("header_1")%></span></a>
-            <%-- for(int i=0; res.containsKey("lang_"+i); i++)
-                        {
-                            %> <span> <%=res.getString("header_"+i)%></span> 
-                        <%}--%>
             <% if(!user){
             %>
+                <a href="PersonalAccount.jsp"><span><%=res.getString("header_0")%></span></a>/
                  <a href="Authorization.jsp"><span><%=res.getString("header_3")%></span></a>
-             <%}%>
+                 
+             <%}
+            else{%>
+                <%=res.getString("header_2")%>:
+                <a href="PersonalAccount.jsp"><span><%=request.getRemoteUser()%></span></a>
+                <a href="<%=parant%>" onclick="singout();"><span><%=res.getString("header_4")%></span></a>
+            <%}%>
+                <br><a href="CartPage.jsp"><span><%=res.getString("header_1")%></span></a>
             <div>
             <form  id="form_lang" name="lang_form" action="<%=parant%>" method="get"> 
                     <select onchange="document.lang_form.submit()" name="lang" id="chooseLand">

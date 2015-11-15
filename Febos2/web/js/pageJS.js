@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+function setDefaultTab(i)
+{
+ if(i==0) show1()
+ else if(i==1) show2();
+}
 function show1(){
 document.getElementById('full_info').style.display = 'block';
 document.getElementById('characteristic').style.background = 'white';
@@ -29,35 +34,6 @@ function setCookie(name,cookie)
 function delCookie(name) {
  document.cookie = name + "=" + "; expires=Thu, 01 Jan 1970 00:00:01 GMT";
   
-}
-
-function refuseToBuy(i, cost,count)
-{
-    var cookies=document.getElementById("cookie_"+i).innerHTML;
-    document.getElementById("product_"+i).style.display='none';
-    delCookie(cookies);
-    addCost(-cost,count);
-}
-function onchangeCount(i,cost)
-{
-    var cookies=document.getElementById("cookie_"+i).innerHTML;
-    var value=document.getElementById("count_"+i).value;
-    var old=parseInt(document.getElementById("oldcount_"+i).innerHTML,10) ;
-    if(!value||value<1)
-    {
-        document.getElementById("count_"+i).value=old;
-    }
-    else
-    {
-        addCost(cost,value-old);
-        document.getElementById("oldcount_"+i).innerHTML=value;
-        setCookie(cookies,value);
-    }
-}
-function authorization()
-{
-    alert("ok");
-    setCookie("user","true");
 }
 
 

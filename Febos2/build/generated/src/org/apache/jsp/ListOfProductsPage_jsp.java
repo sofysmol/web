@@ -56,7 +56,7 @@ public final class ListOfProductsPage_jsp extends org.apache.jasper.runtime.Http
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("  \n");
+      out.write("\n");
       out.write(" ");
  
      Cookie cookies[]=request.getCookies();

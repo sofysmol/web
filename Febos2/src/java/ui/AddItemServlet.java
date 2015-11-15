@@ -62,14 +62,14 @@ public class AddItemServlet extends HttpServlet {
            int id=Integer.parseInt(request.getParameter("add"));
            if (!order.existItem(id))
             order.addItem(id,count);
-            else order.changeItem(id, count);
+            else order.addCountItem(id, count);
             response.sendError(200);
             return;
        }else
            if (request.getParameter("remove")!=null)
                {
                    int id=Integer.parseInt(request.getParameter("remove"));
-                   order.removeItem(id,count);
+                   order.removeCountItem(id,count);
                    
                    //request.getSession();
                }
