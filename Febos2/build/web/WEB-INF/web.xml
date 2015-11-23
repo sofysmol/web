@@ -20,6 +20,10 @@
         <servlet-name>SignOutServlet</servlet-name>
         <servlet-class>ui.SignOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>ui.NewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SignOutServlet</servlet-name>
         <url-pattern>/SignOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -96,9 +104,8 @@
         <servlet-name>AddItemServlet</servlet-name>
         <url-pattern>/AddItemServlet</url-pattern>
     </servlet-mapping>
-    
-     <context-param>
-            <param-name>default_tab</param-name>
-            <param-value>0</param-value>
+    <context-param>
+        <param-name>default_tab</param-name>
+        <param-value>0</param-value>
     </context-param>
 </web-app>

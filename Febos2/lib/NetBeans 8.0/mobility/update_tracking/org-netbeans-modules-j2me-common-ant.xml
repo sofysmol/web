@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.netbeans.modules.j2me.common.ant">
+    <module_version install_time="1416337593960" last="false" origin="installer" specification_version="1.3.1">
+        <file crc="3157705866" name="config/Modules/org-netbeans-modules-j2me-common-ant.xml"/>
+        <file crc="4177321718" name="modules/locale/org-netbeans-modules-j2me-common-ant_ja.jar"/>
+        <file crc="670880548" name="modules/locale/org-netbeans-modules-j2me-common-ant_pt_BR.jar"/>
+        <file crc="3445303638" name="modules/locale/org-netbeans-modules-j2me-common-ant_ru.jar"/>
+        <file crc="3795957882" name="modules/locale/org-netbeans-modules-j2me-common-ant_zh_CN.jar"/>
+        <file crc="516852158" name="modules/org-netbeans-modules-j2me-common-ant.jar"/>
+    </module_version>
+    <module_version install_time="1441915374599" last="true" origin="Дистрибутив NetBeans" specification_version="1.3.2">
+        <file crc="3157705866" name="config/Modules/org-netbeans-modules-j2me-common-ant.xml"/>
+        <file crc="2418407418" name="modules/locale/org-netbeans-modules-j2me-common-ant_ja.jar"/>
+        <file crc="1059307583" name="modules/locale/org-netbeans-modules-j2me-common-ant_pt_BR.jar"/>
+        <file crc="2415648499" name="modules/locale/org-netbeans-modules-j2me-common-ant_ru.jar"/>
+        <file crc="3499490298" name="modules/locale/org-netbeans-modules-j2me-common-ant_zh_CN.jar"/>
+        <file crc="1034502596" name="modules/org-netbeans-modules-j2me-common-ant.jar"/>
+    </module_version>
+</module>

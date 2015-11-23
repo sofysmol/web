@@ -59,6 +59,9 @@ li.navigation-bar-item{
   a.navigerion-bar-link:hover{
     color:black; /* Цвет активных ссылок */
  }
+ a{
+     color:#ac7fa8;
+ }
  
  .navigerion-bar-span{
     border-radius: 5px;

@@ -5,11 +5,15 @@
 <link rel="stylesheet" type="text/css" href="newcss.css">
 --%>
 
+<%@page import="domain.Order"%>
 <%@page import="java.security.Principal"%>
 <%@page import="java.util.ResourceBundle"%>
 <%@page import="java.util.Locale"%>
 <%@page import="domain.Person"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="order" value="${sessionScope.order}"/>   
 <%
 String lang=request.getParameter("lang");    
             if(lang==null)lang="ru";
@@ -24,9 +28,8 @@ String lang=request.getParameter("lang");
            {
               user=true;
            }
-          
-           
-           %>
+%>
+      
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,16 +44,23 @@ String lang=request.getParameter("lang");
              <div id="right_block">
             <% if(!user){
             %>
-                <a href="PersonalAccount.jsp"><span><%=res.getString("header_0")%></span></a>/
-                 <a href="Authorization.jsp"><span><%=res.getString("header_3")%></span></a>
+                <a href="PersonalAccount.jsp?lang=<%=lang%>"><span><%=res.getString("header_0")%></span></a>/
+                 <a href="Authorization.jsp?lang=<%=lang%>"><span><%=res.getString("header_3")%></span></a>
+                 <a href="CartPage.jsp?lang=<%=lang%>"><span><%=res.getString("header_1")%></span></a>
                  
              <%}
             else{%>
                 <%=res.getString("header_2")%>:
-                <a href="PersonalAccount.jsp"><span><%=request.getRemoteUser()%></span></a>
-                <a href="<%=parant%>" onclick="singout();"><span><%=res.getString("header_4")%></span></a>
+                <a href="PersonalAccount.jsp?lang=<%=lang%>"><span><%=request.getRemoteUser()%></span></a><br>
+                <a href="CartPage.jsp?lang=<%=lang%>"><span><%=res.getString("header_1")%></span></a>
+                <c:if test="${order!=null &&!(order.isEmpty())}">
+                                        <a href="Checkout.jsp?lang=<%=lang%>"><span><%=res.getString("checkout")%></span></a>  
+                                     </c:if>
+                
+                <a href="<%=parant%>" onclick="singout();"><span>  <%=res.getString("header_4")%></span></a>
+                
             <%}%>
-                <br><a href="CartPage.jsp"><span><%=res.getString("header_1")%></span></a>
+                
             <div>
             <form  id="form_lang" name="lang_form" action="<%=parant%>" method="get"> 
                     <select onchange="document.lang_form.submit()" name="lang" id="chooseLand">
@@ -70,7 +80,12 @@ String lang=request.getParameter("lang");
                     <div id="menu-contater">
                     <nav>
                         <ul class="menu_list horizontal_list" id="top_menu">
-                         <% for(int i=0; res.containsKey("navigation_menu_item_"+i);i++)
+                        <li class="navigation-bar-item">
+                             <a class=navigerion-bar-link href="ListOfProductsPage.jsp?lang=<%=lang%>">
+                                 <span class=navigerion-bar-span><%=res.getString("navigation_menu_item_"+0)%></span>
+                             </a>
+                         </li>
+                         <% for(int i=1; res.containsKey("navigation_menu_item_"+i);i++)
                          {%>
                          <li class="navigation-bar-item">
                              <a class=navigerion-bar-link href="">

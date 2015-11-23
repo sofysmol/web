@@ -326,3 +326,25 @@ a{
  .left-link:hover{
      text-decoration: underline;
  }
+ .button_next{
+    text-align: center;
+    font-family:'Franklin Gothic Demi Cond', arial;
+    padding: 3px;
+    background:#ff4141; 
+    background: linear-gradient(to top, #ff4141,#e60000);
+    color:white;
+    display: inline-block;
+    border:1px #9a0000 solid;
+    border-radius: 2px;
+    font-size: 18px;
+    
+}
+.button_next:hover{
+    background: #fb2222;
+    border: 1px #9a0000 solid;
+}
+.button_next:active{
+    background:#bf0000;
+    border: 1px #9a0000 solid;
+    background: linear-gradient(to top, #ff4141,#bf0000);
+}

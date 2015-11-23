@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module codename="org.netbeans.modules.j2me.kit">
+    <module_version install_time="1416342336866" last="false" origin="installer" specification_version="1.2.1">
+        <file crc="589184708" name="VERSION.txt"/>
+        <file crc="2155561194" name="config/Modules/org-netbeans-modules-j2me-kit.xml"/>
+        <file crc="1718740307" name="modules/locale/org-netbeans-modules-j2me-kit_ja.jar"/>
+        <file crc="2463555102" name="modules/locale/org-netbeans-modules-j2me-kit_pt_BR.jar"/>
+        <file crc="2310368540" name="modules/locale/org-netbeans-modules-j2me-kit_ru.jar"/>
+        <file crc="2808629253" name="modules/locale/org-netbeans-modules-j2me-kit_zh_CN.jar"/>
+        <file crc="2418870247" name="modules/org-netbeans-modules-j2me-kit.jar"/>
+    </module_version>
+    <module_version install_time="1441915374942" last="true" origin="Дистрибутив NetBeans" specification_version="1.2.2">
+        <file crc="589184708" name="VERSION.txt"/>
+        <file crc="2155561194" name="config/Modules/org-netbeans-modules-j2me-kit.xml"/>
+        <file crc="2991492290" name="modules/locale/org-netbeans-modules-j2me-kit_ja.jar"/>
+        <file crc="1226448366" name="modules/locale/org-netbeans-modules-j2me-kit_pt_BR.jar"/>
+        <file crc="1764651124" name="modules/locale/org-netbeans-modules-j2me-kit_ru.jar"/>
+        <file crc="1433799508" name="modules/locale/org-netbeans-modules-j2me-kit_zh_CN.jar"/>
+        <file crc="3525516063" name="modules/org-netbeans-modules-j2me-kit.jar"/>
+    </module_version>
+</module>

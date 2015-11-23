@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22.11.2015 13:40:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="dbshop" name="dao.history.History" optimistic-lock="version" table="history">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="dao.products.Products" fetch="select" name="products">
+      <column name="productId" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="dao.shop.Shop" fetch="select" name="shop">
+      <column name="shopId" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="dao.Users.Users" fetch="select" name="users">
+      <column name="userId" not-null="true"/>
+    </many-to-one>
+    <property name="when" type="date">
+      <column length="10" name="when" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

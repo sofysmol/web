@@ -178,9 +178,12 @@ static {
       out.write(": $</span>\n");
       out.write("                                <strong id=\"result_cost\">0</strong>\n");
       out.write("                            </div>\n");
-      out.write("                            \n");
-      out.write("                            <h2>");
+      out.write("                                <div class=\"button_next\" onclick=\"\">");
       if (_jspx_meth_fmt_message_6(_jspx_page_context))
+        return;
+      out.write("</div>\n");
+      out.write("                            <h2>");
+      if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
       out.write("</h2>\n");
       out.write("                            <div class=\"list_product grid js-masonry\">\n");
@@ -597,13 +600,31 @@ static {
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_6.setParent(null);
-    _jspx_th_fmt_message_6.setKey("shopping_list");
+    _jspx_th_fmt_message_6.setKey("next");
     int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
     if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
       return true;
     }
     _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);
+    return false;
+  }
+
+  private boolean _jspx_meth_fmt_message_7(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  fmt:message
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_7.setParent(null);
+    _jspx_th_fmt_message_7.setKey("shopping_list");
+    int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
+    if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+      return true;
+    }
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
     return false;
   }
 
@@ -694,7 +715,7 @@ static {
         out.write("\n");
         out.write("                                        <div class=\"empty_message\"> \n");
         out.write("                                            ");
-        if (_jspx_meth_fmt_message_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_1, _jspx_page_context))
+        if (_jspx_meth_fmt_message_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_when_1, _jspx_page_context))
           return true;
         out.write("\n");
         out.write("                                        </div>    \n");
@@ -712,21 +733,21 @@ static {
     return false;
   }
 
-  private boolean _jspx_meth_fmt_message_7(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_1, PageContext _jspx_page_context)
+  private boolean _jspx_meth_fmt_message_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_when_1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_7 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_7.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_1);
-    _jspx_th_fmt_message_7.setKey("empty_card_message");
-    int _jspx_eval_fmt_message_7 = _jspx_th_fmt_message_7.doStartTag();
-    if (_jspx_th_fmt_message_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_8 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_8.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_when_1);
+    _jspx_th_fmt_message_8.setKey("empty_card_message");
+    int _jspx_eval_fmt_message_8 = _jspx_th_fmt_message_8.doStartTag();
+    if (_jspx_th_fmt_message_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
       return true;
     }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_7);
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
     return false;
   }
 
@@ -819,7 +840,7 @@ static {
             return true;
           out.write("   \n");
           out.write("                                                <strong>");
-          if (_jspx_meth_fmt_message_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+          if (_jspx_meth_fmt_message_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</strong>\n");
           out.write("\n");
@@ -984,21 +1005,21 @@ static {
     return false;
   }
 
-  private boolean _jspx_meth_fmt_message_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+  private boolean _jspx_meth_fmt_message_9(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  fmt:message
-    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_8 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
-    _jspx_th_fmt_message_8.setPageContext(_jspx_page_context);
-    _jspx_th_fmt_message_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
-    _jspx_th_fmt_message_8.setKey("count");
-    int _jspx_eval_fmt_message_8 = _jspx_th_fmt_message_8.doStartTag();
-    if (_jspx_th_fmt_message_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+    org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_9 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
+    _jspx_th_fmt_message_9.setPageContext(_jspx_page_context);
+    _jspx_th_fmt_message_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
+    _jspx_th_fmt_message_9.setKey("count");
+    int _jspx_eval_fmt_message_9 = _jspx_th_fmt_message_9.doStartTag();
+    if (_jspx_th_fmt_message_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
       return true;
     }
-    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_8);
+    _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_9);
     return false;
   }
 

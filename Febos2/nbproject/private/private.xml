@@ -3,18 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/ui/SignOutServlet.java</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/PersonalAccount.jsp</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/hat_page.jsp</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/SingIn.jsp</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/domain/Person.java</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/js/auth.js</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/ui/CreatePage.java</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/style/newcss.css</file>
+            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/style/checkout.css</file>
+            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/Checkout.jsp</file>
+            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/page_product_de.properties</file>
+            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/style/hat_page.css</file>
+            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/js/map.js</file>
+            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/page_product_en.properties</file>
             <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/page_product_ru.properties</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/web/js/cart.js</file>
-            <file>file:/C:/Users/SofySmo/Documents/NetBeansProjects/Febos2/src/java/ui/SingInServlet.java</file>
         </group>
     </open-files>
 </project-private>

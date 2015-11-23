@@ -16,7 +16,7 @@ function sendSingInServlet()
         xhr.onreadystatechange = function() {
             if (this.readyState !== 4) return;
             if (this.status !== 200) {
-              alert('Error while removing item to order'+this.status);
+                        //alert('Error while removing item to order'+this.status);
               return;
             } 
         }
@@ -32,7 +32,7 @@ function singout()
         xhr.onreadystatechange = function() {
             if (this.readyState !== 4) return;
             if (this.status !== 200) {
-              alert('Error while removing item to order'+this.status);
+              //alert('Error while removing item to order'+this.status);
               return;
             } 
         

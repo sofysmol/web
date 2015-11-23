@@ -65,8 +65,12 @@
                             <div id="result">
                                 <span><fmt:message key="sum_cost"/>: $</span>
                                 <strong id="result_cost">0</strong>
+                                <a href="http://localhost:8084/Febos2/Checkout.jsp?lang=${lang}">
+                                    <div id="ordering" class="button_next"><fmt:message key="ordering"/></div>
+                                </a>
                             </div>
-                            
+                                
+                                
                             <h2><fmt:message key="shopping_list" /></h2>
                             <div class="list_product grid js-masonry">
                                 <c:set var="sum" value="${0}"/>

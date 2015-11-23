@@ -125,16 +125,20 @@ public class CreatePage extends HttpServlet {
                       //  {
                     if(!user)
                     {
-                           sb.append( "<a href=\"PersonalAccount.jsp\"><span>"+res.getString("header_0")+"</span></a>/");
-                           sb.append("<a href=\"Authorization.jsp\"><span>"+res.getString("header_3")+"</span></a>");
+                           sb.append( "<a href=\"PersonalAccount.jsp?lang="+lang+"\"><span>"+res.getString("header_0")+"</span></a>/");
+                           sb.append("<a href=\"Authorization.jsp?lang="+lang+"\"><span>"+res.getString("header_3")+"</span></a>");
+                           sb.append("<a href=\"CartPage.jsp?lang="+lang+"\"><span>"+ res.getString("header_1")+"</span></a> ");
                     }
                     else 
                             {
-                                sb.append(res.getString("header_2")+"<a href=\"PersonalAccount.jsp\"><span>"+request.getRemoteUser()+"</span></a>");
+                                
+                                sb.append(res.getString("header_2")+"<a href=\"PersonalAccount.jsp\"><span>"+request.getRemoteUser()+"</span></a><br>");
+                                sb.append("<a href=\"CartPage.jsp?lang="+lang+"\"><span>"+ res.getString("header_1")+"</span></a> ");
+                                sb.append("<br><a href=\"Checkout.jsp?lang="+lang+"\"><span>"+ res.getString("checkout")+"</span></a> ");
                                 sb.append("<a href=\""+request.getContextPath()+"\" onclick=\"singout();\"><span>"+res.getString("header_4")+"</span></a>");
                             }
                             
-                            sb.append("<br><a href=\"CartPage.jsp\"><span>"+ res.getString("header_1")+"</span></a> ");
+                            
                         //}
                                     
                         sb.append("<div>"
@@ -156,6 +160,12 @@ public class CreatePage extends HttpServlet {
                     +"<div id=\"menu-contater\">"
                     +"<nav>"
                         +"<ul class=\"menu_list horizontal_list\" id=\"top_menu\">");
+                        /*  + "<li class=\"navigation-bar-item\">\n" +
+"                             <a class=\"navigerion-bar-link\" href=\"ListOfProductsPage.jsp?lang="+lang+"\">" +
+"                                 <span class=navigerion-bar-span>"+res.getString("navigation_menu_item_"+0)+"</span>" +
+"                             </a>" +
+"                         </li>"*/
+                        
                           for(int i=0; res.containsKey("navigation_menu_item_"+i);i++)
                          {
                          sb.append("<li class=\"navigation-bar-item\">"

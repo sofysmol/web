@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.netbeans.modules.mobility.end2end">
+    <module_version install_time="1416342352240" last="true" origin="installer" specification_version="1.27.1">
+        <file crc="3559759672" name="config/Modules/org-netbeans-modules-mobility-end2end.xml"/>
+        <file crc="1040996369" name="modules/locale/org-netbeans-modules-mobility-end2end_ja.jar"/>
+        <file crc="4038849014" name="modules/locale/org-netbeans-modules-mobility-end2end_pt_BR.jar"/>
+        <file crc="824865860" name="modules/locale/org-netbeans-modules-mobility-end2end_ru.jar"/>
+        <file crc="1458471978" name="modules/locale/org-netbeans-modules-mobility-end2end_zh_CN.jar"/>
+        <file crc="3561304093" name="modules/org-netbeans-modules-mobility-end2end.jar"/>
+    </module_version>
+</module>
