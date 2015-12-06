@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06.12.2015 13:20:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.comment.Comment" table="comment" catalog="dbshop" optimistic-lock="version">
+        <id name="idcomment" type="java.lang.Integer">
+            <column name="idcomment" />
+            <generator class="identity" />
+        </id>
+        <property name="iduser" type="java.lang.Integer">
+            <column name="iduser" />
+        </property>
+        <property name="datacom" type="date">
+            <column name="datacom" length="10" not-null="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

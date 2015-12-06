@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06.12.2015 13:20:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.shop.Shop" table="shop" catalog="dbshop">
+        <id name="shopId" type="int">
+            <column name="shopId" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="x" type="float">
+            <column name="x" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="y" type="float">
+            <column name="y" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

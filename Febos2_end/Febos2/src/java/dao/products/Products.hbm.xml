@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06.12.2015 13:20:00 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dao.products.Products" table="products" catalog="dbshop">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned"></generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="100" unique="true" />
+        </property>
+        <property name="author" type="string">
+            <column name="author" length="100" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="50" />
+        </property>
+        <property name="direction" type="string">
+            <column name="direction" length="45" />
+        </property>
+        <property name="genre" type="string">
+            <column name="genre" length="45" />
+        </property>
+        <property name="pathartwork" type="string">
+            <column name="pathartwork" />
+        </property>
+        <property name="price" type="string">
+            <column name="price" length="16777215" not-null="true" />
+        </property>
+        <property name="size" type="string">
+            <column name="size" length="45" />
+        </property>
+        <property name="technique" type="string">
+            <column name="technique" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>
