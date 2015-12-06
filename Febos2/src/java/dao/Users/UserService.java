@@ -17,9 +17,15 @@ public class UserService {
         userDao = new UserDao();
     }
     public void persist(Users entity) {
+        try{
         userDao.openCurrentSessionwithTransaction();
         userDao.persist(entity);
+        }catch(Exception e)
+        {
+             throw e;
+        } finally {
         userDao.closeCurrentSessionwithTransaction();
+        }
     }
     public void update(Users entity) {
         userDao.openCurrentSessionwithTransaction();
@@ -51,6 +57,15 @@ public class UserService {
     }
     public UserDao userDao() {
         return userDao;
+    }
+    public Users findByLogin(String login)
+    {
+        userDao.openCurrentSession();
+        List<Users> users = userDao.findByLogin(login);
+        userDao.closeCurrentSession();
+        if(users.size()>0)
+            return users.get(0);
+        else return null;
     }
 }
 

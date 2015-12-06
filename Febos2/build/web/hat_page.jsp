@@ -15,8 +15,12 @@
 
 <c:set var="order" value="${sessionScope.order}"/>   
 <%
-String lang=request.getParameter("lang");    
-            if(lang==null)lang="ru";
+    
+    String lang=request.getParameter("lang");    
+            if(lang==null)
+            {
+                lang="ru";
+            }
             Locale locale =new Locale(lang);
             
            ResourceBundle res=ResourceBundle.getBundle("page_product", locale);
@@ -28,8 +32,8 @@ String lang=request.getParameter("lang");
            {
               user=true;
            }
+           String id=null;
 %>
-      
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,34 +43,31 @@ String lang=request.getParameter("lang");
         <script type="text/javascript" src="js/auth.js"></script>
     </head>
     <body>
-        <div id="hat">
-            
+        <div id="hat">      
              <div id="right_block">
             <% if(!user){
             %>
-                <a href="PersonalAccount.jsp?lang=<%=lang%>"><span><%=res.getString("header_0")%></span></a>/
+                <a href="PersonalServlet?lang=<%=lang%>"><span><%=res.getString("header_0")%></span></a>/
                  <a href="Authorization.jsp?lang=<%=lang%>"><span><%=res.getString("header_3")%></span></a>
                  <a href="CartPage.jsp?lang=<%=lang%>"><span><%=res.getString("header_1")%></span></a>
                  
              <%}
             else{%>
                 <%=res.getString("header_2")%>:
-                <a href="PersonalAccount.jsp?lang=<%=lang%>"><span><%=request.getRemoteUser()%></span></a><br>
+                <a href="PersonalServlet?lang=<%=lang%>"><span><%=request.getRemoteUser()%></span></a><br>
                 <a href="CartPage.jsp?lang=<%=lang%>"><span><%=res.getString("header_1")%></span></a>
                 <c:if test="${order!=null &&!(order.isEmpty())}">
-                                        <a href="Checkout.jsp?lang=<%=lang%>"><span><%=res.getString("checkout")%></span></a>  
+                                        <a href="CheckoutServlet?lang=<%=lang%>"><span><%=res.getString("checkout")%></span></a>  
                                      </c:if>
                 
-                <a href="<%=parant%>" onclick="singout();"><span>  <%=res.getString("header_4")%></span></a>
-                
+                <a href="PersonalServlet?lang=<%=lang%>" onclick="singout();"><span>  <%=res.getString("header_4")%></span></a>                
             <%}%>
                 
             <div>
             <form  id="form_lang" name="lang_form" action="<%=parant%>" method="get"> 
                     <select onchange="document.lang_form.submit()" name="lang" id="chooseLand">
-                        
                         <% for(int i=0; res.containsKey("lang_"+i); i++)
-                        {
+                        { 
                             %> <option value=<%=res.getString("l_"+i)%>><%=res.getString("lang_"+i)%></option> 
                         <%}%>
                         </select>

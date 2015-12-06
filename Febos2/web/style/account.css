@@ -10,13 +10,13 @@ and open the template in the editor.
 #profile
 {
     margin:20px;
-    diplay:inline-block;
+    diplay:block;
+    height: 240px;
 }
 img#avatar
 {
     float:left;
     border-radius: 10px;
-
 }
 #info_account
 {
@@ -24,4 +24,50 @@ img#avatar
     display:block;
     margin: 15px;
 }
-
+table#purchases
+{
+    margin: 15px;
+    border: 1px solid grey;  
+    width: 750px;
+}
+td{
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin-bottom: 5px;
+}
+#purchases_info{
+    display: block;
+    width: 756px;
+    float: bottom;
+    margin: 10px;
+}
+h3,h2{
+    margin-left: 20px;
+}
+#com_bl{
+  margin: 10px;
+  
+}
+#comments{
+   padding: 10px;
+}
+#input_comment{
+    padding: 10px;
+    display: block;
+}
+#new_com{
+    width: 700px;
+    display: block;
+    resize: none;
+    margin-bottom: 20px;
+}
+.comment{
+    border: 1px solid #ac7fa8;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 3px;
+}
+#timenow, #datanow{
+    margin-left: 550px;
+    font-size: 30px;
+}

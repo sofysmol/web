@@ -11,7 +11,12 @@
 <function>
     <name>getArt</name>
     <function-class>domain.Utils</function-class>
-    <function-signature>domain.Artwork getArt(int,int)</function-signature>
+    <function-signature>dao.products.Products getArt(java.lang.String)</function-signature>
+</function>
+<function>
+    <name>getArtAsArray</name>
+    <function-class>domain.Utils</function-class>
+    <function-signature>String[] getArtAsArray(dao.products.Products)</function-signature>
 </function>
   <!-- A validator verifies that the tags are used correctly at JSP
           translation time. Validator entries look like this: 

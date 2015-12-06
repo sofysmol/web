@@ -1,4 +1,5 @@
 
+<%@page import="java.util.List"%>
 <%-- 
     Document   : ListOfProductsPage
     Created on : 18.10.2015, 14:11:05
@@ -10,9 +11,14 @@
 <%@page language="java" import="java.util.Locale"%>
 <%@page language="java" import="java.util.ResourceBundle"%>
 <%@page language="java" import="java.util.ArrayList"%>
+<%@page language="java" import="dao.products.*"%>
 <%@page language="java" import="domain.*"%>
+<%@page language="java" import="org.apache.logging.log4j.LogManager"%>
+<%@page language="java" import="org.apache.logging.log4j.Logger"%>
 
  <% 
+     request.getSession().setAttribute("active_page", request.getRequestURI());
+     Logger logger=LogManager.getLogger("shopLog");
      Cookie cookies[]=request.getCookies();
      String lang=request.getParameter("lang");    
             if(lang==null)
@@ -23,15 +29,15 @@
            ResourceBundle resEn=ResourceBundle.getBundle("page_product", localeEn);
            String genre=request.getParameter("genre_filter");
            if (genre==null) genre="All";
-           
-           
-            ArrayList<Artwork[]> art=new ArrayList<Artwork[]>();
-                    Scanner in = new Scanner(new File("C:\\Users\\SofySmo\\Documents\\NetBeansProjects\\Febos2\\src\\java\\filename.txt"));
-                    while (in.hasNextLine())
-                    {
-                       String filename=in.nextLine();
-                       art.add(SerializeArt.deserializeArt("C:\\Users\\SofySmo\\Documents\\NetBeansProjects\\Febos2\\src\\java\\"+filename));
-                    }
+           //ArrayList<Artwork[]> art=(ArrayList<Artwork[]>)session.getAttribute("art");//new request.getSession();
+           List<Products> art=(List<Products>)session.getAttribute("art");
+           if(art==null)
+           {
+               //logger.info("get all picture");
+               ProductService ser=new ProductService();
+               art=ser.findAll();
+               request.getSession().setAttribute("art", art);
+           }
             String cookieName="idirection";
             String direction="Any";
             Cookie myCookie = null;
@@ -53,9 +59,7 @@
                 idirection=myCookie.getValue();
             }
             if(idirection==null) idirection="0";
-                direction=resEn.getString("direction_"+idirection);
-                //out.println(direction);
-            
+                direction=resEn.getString("direction_"+idirection);         
             
  %>
  
@@ -116,21 +120,20 @@
                     <div class="list_product grid js-masonry">
                     
                 <%        
-                    
                     for(int j=0; j<art.size(); j++)
-                    for(int i=0;i<art.get(j).length; i++)
+                    //for(int i=0;i<art.get(j).length; i++)
                     {
-                if(genre.equals("All")||(art.get(j)[i].getGenre()!=null&&art.get(j)[i].getGenre().equals(genre)))
-                {if(direction.equals("Any")||(art.get(j)[i].getDirection()!=null&&art.get(j)[i].getDirection().equals(direction))){%>
-                <a href="http://localhost:8084/Febos2/CreatePage?lang=<%=lang%>&container=<%=j%>&index=<%=i%>">
+                if(genre.equals("All")||(art.get(j).getGenre()!=null&&art.get(j).getGenre().equals(genre)))
+                {if(direction.equals("Any")||(art.get(j).getDirection()!=null&&art.get(j).getDirection().equals(direction))){%>
+                <a href="http://localhost:8084/Febos2/ProductPage.jsp?lang=<%=lang%>&id=<%=art.get(j).getId()%>">
                     <div class="product grid-item">
                     <jsp:include page="product.jsp">
                             <jsp:param name="lang" value="<%=lang%>"/>
-                            <jsp:param name="name" value="<%=art.get(j)[i].getName()%>" />
+                            <jsp:param name="name" value="<%=art.get(j).getName()%>" />
                             
-                            <jsp:param name="author" value="<%=art.get(j)[i].getAuthor()%>" />
-                            <jsp:param name="path" value="<%=art.get(j)[i].getPathartwork() %>" />
-                            <jsp:param name="price" value="<%=art.get(j)[i].getPrice()%>" />
+                            <jsp:param name="author" value="<%=art.get(j).getAuthor()%>" />
+                            <jsp:param name="path" value="<%=art.get(j).getPathartwork() %>" />
+                            <jsp:param name="price" value="<%=art.get(j).getPrice()%>" />
                     </jsp:include>                       
                         <span class="buy_product" onclick=""><%=res.getString("buy")%></span>
                     </div> 

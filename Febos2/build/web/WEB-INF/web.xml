@@ -4,6 +4,15 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+    <filter>
+        <filter-name>FilterLog</filter-name>
+        <filter-class>filters.FilterLog</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterLog</filter-name>
+        <url-pattern>/*</url-pattern>
+         <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -24,6 +33,14 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>ui.NewServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DaoWorker</servlet-name>
+        <servlet-class>ui.DaoWorker</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>ui.CheckoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -40,30 +57,40 @@
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DaoWorker</servlet-name>
+        <url-pattern>/DaoWorker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/CheckoutServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>redirect.jsp</welcome-file>
+        <welcome-file>ListOfProductsPage.jsp</welcome-file>
     </welcome-file-list>
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>
                 info
             </web-resource-name>
-            <url-pattern>/PersonalAccount.jsp</url-pattern>
+            <url-pattern>/PersonalServlet</url-pattern>
+            <url-pattern>/CheckoutServlet</url-pattern>
             <url-pattern>/CartPage.jsp</url-pattern>
+            <url-pattern>/PersonalAccount.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>tomcat</role-name>
+            <role-name>user</role-name>
         </auth-constraint>
     </security-constraint>
     <security-role>
-        <role-name>tomcat</role-name>
+        <role-name>user</role-name>
     </security-role>
     <login-config>
         <auth-method>FORM</auth-method>

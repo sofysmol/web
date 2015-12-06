@@ -72,7 +72,7 @@ div.product-attributs{
 }
 
 .with_points{
-    background-image: url("point.gif");
+    background-image: url("img/point.gif");
     background-repeat: repeat-x;
     background-position: bottom;
     display: inline-block;

@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt'%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="active_page" value="ProductPage.jsp" scope="session" />
 <c:choose>
 <c:when test="${empty param.lang}">
     <c:set var="lang" value="ru"/>
@@ -62,20 +63,15 @@
                                 <c:if test='${param.Retry=="yes"}'>
                                     <span id="text_error"><fmt:message key='error_singin'/></span>
                                  </c:if>
-                                <form action="j_security_check" method="post" name="loginForm">
+                                <form action="j_security_check" method="post" name="loginForm" >
                                     <label for="email"><fmt:message key="email"/></label><br>
                                     <input type="text" id="email" name="j_username" placeholder=<fmt:message key='email'/> size="30"/><br><br>
                                     
                                     <label for="password"><fmt:message key="password" /></label><br>
                                     <input type="password" id="password" name="j_password" placeholder=<fmt:message key='password'/> size="30"/><br>
-                                 
-                                
-                                    <input type="submit"  onclick='sendSingInServlet();' value=<fmt:message key="header_0"/> />
+                                    <input type="submit" onmouseup="checkInDB();" value=<fmt:message key="header_0"/> />
                                 </form>
-                            </div>
-                            
-                           <%-- onclick='sendSingInServlet();'--%>
-                            
+                            </div>                         
                             
                         </div>
              </div>

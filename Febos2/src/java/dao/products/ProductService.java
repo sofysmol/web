@@ -17,9 +17,15 @@ public class ProductService {
         productsDao = new ProductDao();
     }
     public void persist(Products entity) {
+         try{
         productsDao.openCurrentSessionwithTransaction();
         productsDao.persist(entity);
+        }catch(Exception e)
+        {
+             throw e;
+        } finally {
         productsDao.closeCurrentSessionwithTransaction();
+        }
     }
     public void update(Products entity) {
         productsDao.openCurrentSessionwithTransaction();

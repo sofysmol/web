@@ -177,11 +177,17 @@ static {
         return;
       out.write(": $</span>\n");
       out.write("                                <strong id=\"result_cost\">0</strong>\n");
-      out.write("                            </div>\n");
-      out.write("                                <div class=\"button_next\" onclick=\"\">");
+      out.write("                                <a href=\"http://localhost:8084/Febos2/Checkout.jsp?lang=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lang}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
+      out.write("                                    <div id=\"ordering\" class=\"button_next\">");
       if (_jspx_meth_fmt_message_6(_jspx_page_context))
         return;
       out.write("</div>\n");
+      out.write("                                </a>\n");
+      out.write("                            </div>\n");
+      out.write("                                \n");
+      out.write("                                \n");
       out.write("                            <h2>");
       if (_jspx_meth_fmt_message_7(_jspx_page_context))
         return;
@@ -600,7 +606,7 @@ static {
     org.apache.taglibs.standard.tag.rt.fmt.MessageTag _jspx_th_fmt_message_6 = (org.apache.taglibs.standard.tag.rt.fmt.MessageTag) _jspx_tagPool_fmt_message_key_nobody.get(org.apache.taglibs.standard.tag.rt.fmt.MessageTag.class);
     _jspx_th_fmt_message_6.setPageContext(_jspx_page_context);
     _jspx_th_fmt_message_6.setParent(null);
-    _jspx_th_fmt_message_6.setKey("next");
+    _jspx_th_fmt_message_6.setKey("ordering");
     int _jspx_eval_fmt_message_6 = _jspx_th_fmt_message_6.doStartTag();
     if (_jspx_th_fmt_message_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_fmt_message_key_nobody.reuse(_jspx_th_fmt_message_6);

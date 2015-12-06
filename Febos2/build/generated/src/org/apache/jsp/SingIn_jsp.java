@@ -95,6 +95,7 @@ public final class SingIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_fmt_setBundle_1(_jspx_page_context))
         return;
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<Configuration status="INFO">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    <File name="File" fileName="C:\Users\SofySmo\Documents\NetBeansProjects\Febos2\log\shop.log" immediateFlush="true" append="false">
+            <PatternLayout pattern="%C %d{dd-MM-yyyy HH:mm:ss}  %-5level - %msg%n"/>
+    </File>
+    <File name="FileError" fileName="C:\Users\SofySmo\Documents\NetBeansProjects\Febos2\log\error.log" immediateFlush="true" append="false">
+        <PatternLayout pattern="%C %d{dd-MM-yyyy HH:mm:ss}  %-5level - %msg%n"/>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Root level="ERROR">
+      <AppenderRef ref="FileError" level="ERROR"/>
+    </Root>
+      <Logger name="shopLog" level="DEBUG">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Logger>
+    
+  </Loggers>
+</Configuration>

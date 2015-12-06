@@ -11,14 +11,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author SofySmo
  */
 public class SignOutServlet extends HttpServlet {
-
-    /**
+    private static final Logger logger = LogManager.getLogger("shopLog");
+    /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -30,6 +32,7 @@ public class SignOutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getSession().invalidate();
+        logger.info(" user sing out");
         response.setStatus(response.SC_OK);
     }
 

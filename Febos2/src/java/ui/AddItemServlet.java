@@ -14,14 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 /**
  *
  * @author SofySmo
  */
 @WebServlet(name = "AddItemServlet", urlPatterns = {"/AddItemServlet"})
 public class AddItemServlet extends HttpServlet {
-
+    private static final Logger logger = LogManager.getLogger("shopLog");
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,9 +44,14 @@ public class AddItemServlet extends HttpServlet {
                count=Integer.parseInt(request.getParameter("count"));
            }
            else
-           {response.sendError(401); return;}
+           {
+               logger.error("there is no parameter \"count\"");
+               response.sendError(401);
+               return;
+           }
        }catch(NumberFormatException e)
        {
+           logger.error("incorrectly entered parameter \"count\"");
            response.sendError(422);
            return;
        }
@@ -63,6 +69,7 @@ public class AddItemServlet extends HttpServlet {
            if (!order.existItem(id))
             order.addItem(id,count);
             else order.addCountItem(id, count);
+            logger.info("added product in cart id="+id+" count="+count);
             response.sendError(200);
             return;
        }else
@@ -70,10 +77,13 @@ public class AddItemServlet extends HttpServlet {
                {
                    int id=Integer.parseInt(request.getParameter("remove"));
                    order.removeCountItem(id,count);
-                   
+                   logger.info("removed product in cart id="+id+" count="+count);
                    //request.getSession();
                }
-           else response.sendError(400);
+           else
+           {
+               response.sendError(400);
+           }
            response.sendError(200);
     }
 

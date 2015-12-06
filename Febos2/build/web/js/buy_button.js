@@ -5,17 +5,13 @@
  */
 function buyButtonFuck(id)
 {
-    //alert(id);
     var xhr=new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:8084/Febos2/AddItemServlet?add='+id+'&count=1',true);
     xhr.send();
     xhr.onreadystatechange = function() {
         if (this.readyState !== 4) return;
-
-
         if (this.status !== 200) {
           alert('Error while adding item to order'+this.status);
-          
           return;
         } 
     }

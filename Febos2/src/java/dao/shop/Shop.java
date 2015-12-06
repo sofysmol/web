@@ -1,15 +1,10 @@
 package dao.shop;
-// Generated 22.11.2015 13:40:00 by Hibernate Tools 4.3.1
+// Generated 06.12.2015 13:19:59 by Hibernate Tools 4.3.1
 
 
-import dao.history.History;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,35 +19,23 @@ public class Shop  implements java.io.Serializable {
 
      private int shopId;
      private String name;
-     private String country;
-     private String town;
-     private String address;
-     private Set<History> histories = new HashSet<History>(0);
+     private float x;
+     private float y;
 
     public Shop() {
     }
 
-	
-    public Shop(int shopId, String name, String country, String town, String address) {
-        this.shopId = shopId;
-        this.name = name;
-        this.country = country;
-        this.town = town;
-        this.address = address;
-    }
-    public Shop(int shopId, String name, String country, String town, String address, Set<History> histories) {
+    public Shop(int shopId, String name, float x, float y) {
        this.shopId = shopId;
        this.name = name;
-       this.country = country;
-       this.town = town;
-       this.address = address;
-       this.histories = histories;
+       this.x = x;
+       this.y = y;
     }
    
      @Id 
 
     
-    @Column(name="shopId", unique=true, nullable=false)
+    @Column(name="shopId", nullable=false)
     public int getShopId() {
         return this.shopId;
     }
@@ -72,42 +55,23 @@ public class Shop  implements java.io.Serializable {
     }
 
     
-    @Column(name="country", nullable=false, length=100)
-    public String getCountry() {
-        return this.country;
+    @Column(name="x", nullable=false, precision=12, scale=0)
+    public float getX() {
+        return this.x;
     }
     
-    public void setCountry(String country) {
-        this.country = country;
+    public void setX(float x) {
+        this.x = x;
     }
 
     
-    @Column(name="town", nullable=false, length=100)
-    public String getTown() {
-        return this.town;
+    @Column(name="y", nullable=false, precision=12, scale=0)
+    public float getY() {
+        return this.y;
     }
     
-    public void setTown(String town) {
-        this.town = town;
-    }
-
-    
-    @Column(name="address", nullable=false, length=100)
-    public String getAddress() {
-        return this.address;
-    }
-    
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="shop")
-    public Set<History> getHistories() {
-        return this.histories;
-    }
-    
-    public void setHistories(Set<History> histories) {
-        this.histories = histories;
+    public void setY(float y) {
+        this.y = y;
     }
 
 

@@ -6,6 +6,7 @@
 package dao.shop;
 
 import java.util.List;
+import org.hibernate.HibernateException;
 
 /**
  *
@@ -17,9 +18,15 @@ public class ShopService {
         shopDao = new ShopDao();
     }
     public void persist(Shop entity) {
+         try{
         shopDao.openCurrentSessionwithTransaction();
         shopDao.persist(entity);
+        }catch(Exception e)
+        {
+             throw e;
+        } finally {
         shopDao.closeCurrentSessionwithTransaction();
+        }
     }
     public void update(Shop entity) {
         shopDao.openCurrentSessionwithTransaction();
@@ -36,7 +43,7 @@ public class ShopService {
         shopDao.openCurrentSessionwithTransaction();
         Shop shop = shopDao.findById(id);
         shopDao.delete(shop);
-        shopDao.closeCurrentSessionwithTransaction();
+            shopDao.closeCurrentSessionwithTransaction();
     }
     public List<Shop> findAll() {
         shopDao.openCurrentSession();

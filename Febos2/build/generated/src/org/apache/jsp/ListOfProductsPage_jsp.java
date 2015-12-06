@@ -3,12 +3,16 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.ArrayList;
+import dao.products.*;
 import domain.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public final class ListOfProductsPage_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -48,6 +52,10 @@ public final class ListOfProductsPage_jsp extends org.apache.jasper.runtime.Http
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write('\n');
+      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -59,6 +67,8 @@ public final class ListOfProductsPage_jsp extends org.apache.jasper.runtime.Http
       out.write("\n");
       out.write(" ");
  
+     request.getSession().setAttribute("active_page", request.getRequestURI());
+     Logger logger=LogManager.getLogger("shopLog");
      Cookie cookies[]=request.getCookies();
      String lang=request.getParameter("lang");    
             if(lang==null)
@@ -69,15 +79,15 @@ public final class ListOfProductsPage_jsp extends org.apache.jasper.runtime.Http
            ResourceBundle resEn=ResourceBundle.getBundle("page_product", localeEn);
            String genre=request.getParameter("genre_filter");
            if (genre==null) genre="All";
-           
-           
-            ArrayList<Artwork[]> art=new ArrayList<Artwork[]>();
-                    Scanner in = new Scanner(new File("C:\\Users\\SofySmo\\Documents\\NetBeansProjects\\Febos2\\src\\java\\filename.txt"));
-                    while (in.hasNextLine())
-                    {
-                       String filename=in.nextLine();
-                       art.add(SerializeArt.deserializeArt("C:\\Users\\SofySmo\\Documents\\NetBeansProjects\\Febos2\\src\\java\\"+filename));
-                    }
+           //ArrayList<Artwork[]> art=(ArrayList<Artwork[]>)session.getAttribute("art");//new request.getSession();
+           List<Products> art=(List<Products>)session.getAttribute("art");
+           if(art==null)
+           {
+               //logger.info("get all picture");
+               ProductService ser=new ProductService();
+               art=ser.findAll();
+               request.getSession().setAttribute("art", art);
+           }
             String cookieName="idirection";
             String direction="Any";
             Cookie myCookie = null;
@@ -209,23 +219,20 @@ for(int i=1;res.containsKey("left-navigation-item_"+i); i++)
       out.write("                    \n");
       out.write("                ");
         
-                    
                     for(int j=0; j<art.size(); j++)
-                    for(int i=0;i<art.get(j).length; i++)
+                    //for(int i=0;i<art.get(j).length; i++)
                     {
-                if(genre.equals("All")||(art.get(j)[i].getGenre()!=null&&art.get(j)[i].getGenre().equals(genre)))
-                {if(direction.equals("Any")||(art.get(j)[i].getDirection()!=null&&art.get(j)[i].getDirection().equals(direction))){
+                if(genre.equals("All")||(art.get(j).getGenre()!=null&&art.get(j).getGenre().equals(genre)))
+                {if(direction.equals("Any")||(art.get(j).getDirection()!=null&&art.get(j).getDirection().equals(direction))){
       out.write("\n");
-      out.write("                <a href=\"http://localhost:8084/Febos2/CreatePage?lang=");
+      out.write("                <a href=\"http://localhost:8084/Febos2/ProductPage.jsp?lang=");
       out.print(lang);
-      out.write("&container=");
-      out.print(j);
-      out.write("&index=");
-      out.print(i);
+      out.write("&id=");
+      out.print(art.get(j).getId());
       out.write("\">\n");
       out.write("                    <div class=\"product grid-item\">\n");
       out.write("                    ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "product.jsp" + "?" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("lang", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(lang), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("name", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j)[i].getName()), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("author", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j)[i].getAuthor()), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("path", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j)[i].getPathartwork() ), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("price", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j)[i].getPrice()), request.getCharacterEncoding()), out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "product.jsp" + "?" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("lang", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(lang), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("name", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j).getName()), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("author", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j).getAuthor()), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("path", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j).getPathartwork() ), request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("price", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode(String.valueOf(art.get(j).getPrice()), request.getCharacterEncoding()), out, false);
       out.write("                       \n");
       out.write("                        <span class=\"buy_product\" onclick=\"\">");
       out.print(res.getString("buy"));

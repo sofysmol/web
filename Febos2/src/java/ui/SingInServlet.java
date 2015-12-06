@@ -5,6 +5,7 @@
  */
 package ui;
 
+import dao.history.HistoryService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import domain.*;
+import java.util.List;
 
 /**
  *
@@ -31,22 +33,12 @@ public class SingInServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //if(request.getRemoteUser()!=null)
-        //{
-        String email=request.getParameter("email");
-        if(email==null)
-           {response.sendError(401); return;}
-       
-        HttpSession session=request.getSession();
-        Person p=new Person();
-        p.setEmail(email);
-        p.setName("someone");
-        p.setSurname("someone");
-        session.setAttribute("user",p);
-        response.sendError(200);
-    //    }else {response.sendError(401); return;}
-        request.getRequestDispatcher("/PersonalAccount.jsp").forward(request, response);
+        request.getRequestDispatcher("/PersonalServlet").forward(request, response);
+    }
+    private List<List<String>> historyUser(int id)
+    {
+        HistoryService ser=new HistoryService();
+        return ser.findAllOrderByUserId(id);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

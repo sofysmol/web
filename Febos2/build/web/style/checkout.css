@@ -10,11 +10,7 @@ and open the template in the editor.
 body{
     
 }
-div.channel-homepage{
-    font-family:'Franklin Gothic Demi Cond', arial;
-    width: 1000px;
-    padding: 50px;
-}
+
 h2{
     text-align: center;
     font-size: 35px;
@@ -62,4 +58,23 @@ h4{
     width: 800px;
     height: 600px;
     padding: 0;
+}
+div#channel-checkout{
+    font-family:'Franklin Gothic Demi Cond', arial;
+    width: 1000px;
+    padding: 50px;
+}
+#shot_info_way{
+    width: 900px;
+    height: auto;
+    display: block;
+    float: top;
+}
+.list_product{
+    display: block;
+    width: 900px;
+    height: 300px;
+}
+#list_product_checkout{
+    display:block;
 }

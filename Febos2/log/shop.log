@@ -1,0 +1,31 @@
+filters.FilterLog 06-12-2015 16:36:06  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/js/auth.js from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:06  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/auth.css from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:06  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/js/pageJS.js from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:06  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/franklin-gothic-demi-cond.ttf from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:06  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/newcss.css from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:06  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/hat_page.css from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:10  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/franklin-gothic-demi-cond.ttf from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:10  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/js/auth.js from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:21  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/DaoWorker from ProductPage.jsp?work=auth&login=tomcat
+ui.DaoWorker 06-12-2015 16:36:23  INFO  - authorized user with login=tomcat
+filters.FilterLog 06-12-2015 16:36:23  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/PersonalServlet from ProductPage.jsp?lang=ru
+ui.PersonalServlet 06-12-2015 16:36:24  INFO  - requested information about  purchases of user with user id=1
+ui.PersonalServlet 06-12-2015 16:36:24  INFO  - requested information about comments of user with user id=1
+filters.FilterLog 06-12-2015 16:36:25  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/account.css from PersonalAccount.jsp
+filters.FilterLog 06-12-2015 16:36:25  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/newcss.css from PersonalAccount.jsp
+filters.FilterLog 06-12-2015 16:36:25  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/js/personal_account.js from PersonalAccount.jsp
+filters.FilterLog 06-12-2015 16:36:25  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/js/JS_data.js from PersonalAccount.jsp
+filters.FilterLog 06-12-2015 16:36:25  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/img/panda.jpg from PersonalAccount.jsp
+filters.FilterLog 06-12-2015 16:36:40  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/ListOfProductsPage.jsp from PersonalAccount.jsp?lang=ru
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/newcss.css from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:41  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/masonry.js from /Febos2/ListOfProductsPage.jsp
+filters.FilterLog 06-12-2015 16:36:42  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/ProductPage.jsp from /Febos2/ListOfProductsPage.jsp?lang=ru&id=6
+filters.FilterLog 06-12-2015 16:36:43  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/js/buy_button.js from ProductPage.jsp
+filters.FilterLog 06-12-2015 16:36:43  INFO  - user ip= 0:0:0:0:0:0:0:1 requested resource /Febos2/style/img/point.gif from ProductPage.jsp

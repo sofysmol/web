@@ -3,39 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function sendSingInServlet()
+function checkInDB()
 {
- 
-    
-    var email=document.getElementById("email").value;
-     var xhr=new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8084/Febos2/SingInServlet?email='+email,true);
-          xhr.send();
-          
-        //alert("nen");
-        xhr.onreadystatechange = function() {
-            if (this.readyState !== 4) return;
-            if (this.status !== 200) {
-                        //alert('Error while removing item to order'+this.status);
-              return;
-            } 
-        }
+    var login=document.getElementById("email").value;
+    sendServlet('http://localhost:8084/Febos2/DaoWorker?work=auth&login='+login);
 }
 function singout()
 {
-     var xhr=new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8084/Febos2/SignOutServlet',true);
+    
+    sendServlet('http://localhost:8084/Febos2/SignOutServlet');
+    // window.location.href = "http://localhost:8084/Febos2/PageServlet"
+   // alert('77');
+}
+function sendServlet(request)
+{
+    var xhr=new XMLHttpRequest();
+        xhr.open('GET',request,false);
           xhr.send();
-         
-          
-        //alert("nen");
         xhr.onreadystatechange = function() {
             if (this.readyState !== 4) return;
             if (this.status !== 200) {
-              //alert('Error while removing item to order'+this.status);
+              alert('Error while removing item to order'+this.status);
               return;
             } 
         
 }
 }
-

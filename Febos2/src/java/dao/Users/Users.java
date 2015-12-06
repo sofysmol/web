@@ -1,15 +1,10 @@
 package dao.Users;
-// Generated 22.11.2015 13:40:00 by Hibernate Tools 4.3.1
+// Generated 06.12.2015 13:19:59 by Hibernate Tools 4.3.1
 
 
-import dao.history.History;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,28 +20,20 @@ public class Users  implements java.io.Serializable {
      private int id;
      private String login;
      private String password;
-     private Set<History> histories = new HashSet<History>(0);
 
     public Users() {
     }
 
-	
     public Users(int id, String login, String password) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-    }
-    public Users(int id, String login, String password, Set<History> histories) {
        this.id = id;
        this.login = login;
        this.password = password;
-       this.histories = histories;
     }
    
      @Id 
 
     
-    @Column(name="id", unique=true, nullable=false)
+    @Column(name="id", nullable=false)
     public int getId() {
         return this.id;
     }
@@ -73,15 +60,6 @@ public class Users  implements java.io.Serializable {
     
     public void setPassword(String password) {
         this.password = password;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="users")
-    public Set<History> getHistories() {
-        return this.histories;
-    }
-    
-    public void setHistories(Set<History> histories) {
-        this.histories = histories;
     }
 
 

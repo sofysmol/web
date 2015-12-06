@@ -8,13 +8,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@page language="java" import="domain.*"%>
 <%@page language="java" import="java.util.ArrayList" %>
+<%@page language="java" import="javax.servlet.http.HttpServletRequest" %>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt'%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="ff" uri="/WEB-INF/tlds/myfunction.tld"%>
-
-
-
+<c:set var="active_page" value="CartPage.jsp" scope="session" />
 <c:set var="order" value="${sessionScope.order}"/>
 <c:choose>
 <c:when test="${empty param.lang}">
@@ -65,7 +64,8 @@
                             <div id="result">
                                 <span><fmt:message key="sum_cost"/>: $</span>
                                 <strong id="result_cost">0</strong>
-                                <a href="http://localhost:8084/Febos2/Checkout.jsp?lang=${lang}">
+                                
+                                <a href="http://localhost:8084/Febos2/CheckoutServlet?lang=${lang}">
                                     <div id="ordering" class="button_next"><fmt:message key="ordering"/></div>
                                 </a>
                             </div>
@@ -84,9 +84,9 @@
                                     <c:otherwise>
                                         <c:forEach var="item" items="${order.getItemList()}">
                                             <fmt:parseNumber var="id" type="number" value="${item.getId()}"/>
-                                                <c:set var="indexFile" value="${id/100}"/>
-                                                <c:set var="indexPicture" value="${id%100}"/>
-                                                <c:set var="art" value="${ff:getArt(indexFile,indexPicture)}"/>
+                                               <%-- <c:set var="indexFile" value="${id/100}"/>
+                                                <c:set var="indexPicture" value="${id%100}"/>--%>
+                                                <c:set var="art" value="${ff:getArt(id)}"/>
                                                 <c:set var="sum" value="${sum+art.price}"/>
                                                 <div class="product grid-item choose_product" id="product_${i}">
                                                 <span class="cross" onclick="refuseProduct(${i},${item.getId()},${art.price},${item.getCount()});">X</span>

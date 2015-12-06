@@ -15,7 +15,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import dao.shop.ShopService;
 import dao.shop.Shop;
+import dao.products.ProductService;
+import dao.products.Products;
 import org.hibernate.HibernateException;
+import domain.*;
+import java.io.File;
+import java.util.*;
+
 
 /**
  *
@@ -39,19 +45,45 @@ public class NewServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html><html><header><title>DB</title></head><body>");
             try{
-               /* out.print("fdf");
-                session=HibernateUtil.getSessionFactory().openSession();
-                out.print("fdf");*/
-                //session=helper.
-                //tx=session.beginTransaction();
-                ShopService service=new ShopService();
                 
+                    /* ProductService ser=new ProductService();
+                Products pr=new Products();
+                ArrayList<Artwork[]> art=new ArrayList<Artwork[]>();
+                    Scanner in = new Scanner(new File("C:\\Users\\SofySmo\\Documents\\NetBeansProjects\\Febos2\\src\\java\\filename.txt"));
+                    while (in.hasNextLine())
+                    {
+                       String filename=in.nextLine();
+                       art.add(SerializeArt.deserializeArt("C:\\Users\\SofySmo\\Documents\\NetBeansProjects\\Febos2\\src\\java\\"+filename));
+                    }
+                     
+                for(int i=0; i<art.size();i++)
+                {
+                    Artwork[] pc=art.get(i);
+                    for(int j=0; j<pc.length;j++)
+                    {
+                       pr.setAuthor(pc[j].getAuthor());
+                       pr.setCountry(pc[j].getCountry());
+                       pr.setDirection(pc[j].getDirection());
+                       pr.setGenre(pc[j].getGenre());
+                       pr.setName(pc[j].getName());
+                       pr.setPathartwork(pc[j].getPathartwork());
+                       pr.setTechnique(pc[j].getTechnique());
+                       pr.setSize(pc[j].getSize());
+                       pr.setPrice(String.valueOf(pc[j].getPrice()));
+                      // pr.setId(i*100+j);
+                       ser.persist(pr);
+                       
+                    }
+                }
                 out.print("<br>Name:");
-                Shop shop=service.findById(1);
+                ShopService service=new ShopService();
+                Shop shop=service.findById((Integer)1);
                 out.print(shop.getName());
+               */
             }
        catch(HibernateException e)
             {
+                 
             /* if(tx!=null) tx.rollback();
              out.println(e.toString());*/
                // session=newHibernateUtil.getSessionFactory()

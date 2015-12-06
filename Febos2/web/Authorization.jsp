@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/fmt' prefix='fmt'%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="active_page" value="Authorization.jsp" scope="session" />
 <c:choose>
 <c:when test="${empty param.lang}">
     <c:set var="lang" value="ru"/>

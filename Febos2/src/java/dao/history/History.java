@@ -1,17 +1,11 @@
 package dao.history;
-// Generated 22.11.2015 13:40:00 by Hibernate Tools 4.3.1
+// Generated 06.12.2015 13:19:59 by Hibernate Tools 4.3.1
 
 
-import dao.products.Products;
-import dao.Users.Users;
-import dao.shop.Shop;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,26 +21,26 @@ public class History  implements java.io.Serializable {
 
 
      private int id;
-     private Products products;
-     private Shop shop;
-     private Users users;
-     private Date when;
+     private int shopId;
+     private int productId;
+     private int userId;
+     private Date databuy;
 
     public History() {
     }
 
-    public History(int id, Products products, Shop shop, Users users, Date when) {
+    public History(int id, int shopId, int productId, int userId, Date databuy) {
        this.id = id;
-       this.products = products;
-       this.shop = shop;
-       this.users = users;
-       this.when = when;
+       this.shopId = shopId;
+       this.productId = productId;
+       this.userId = userId;
+       this.databuy = databuy;
     }
    
      @Id 
 
     
-    @Column(name="id", unique=true, nullable=false)
+    @Column(name="id", nullable=false)
     public int getId() {
         return this.id;
     }
@@ -55,44 +49,44 @@ public class History  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="productId", nullable=false)
-    public Products getProducts() {
-        return this.products;
+    
+    @Column(name="shopID", nullable=false)
+    public int getShopId() {
+        return this.shopId;
     }
     
-    public void setProducts(Products products) {
-        this.products = products;
+    public void setShopId(int shopId) {
+        this.shopId = shopId;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="shopId", nullable=false)
-    public Shop getShop() {
-        return this.shop;
+    
+    @Column(name="productID", nullable=false)
+    public int getProductId() {
+        return this.productId;
     }
     
-    public void setShop(Shop shop) {
-        this.shop = shop;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="userId", nullable=false)
-    public Users getUsers() {
-        return this.users;
+    
+    @Column(name="userID", nullable=false)
+    public int getUserId() {
+        return this.userId;
     }
     
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name="when", nullable=false, length=10)
-    public Date getWhen() {
-        return this.when;
+    @Column(name="databuy", nullable=false, length=10)
+    public Date getDatabuy() {
+        return this.databuy;
     }
     
-    public void setWhen(Date when) {
-        this.when = when;
+    public void setDatabuy(Date databuy) {
+        this.databuy = databuy;
     }
 
 

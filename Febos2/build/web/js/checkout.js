@@ -36,4 +36,55 @@ function setWay()
     }
         
 }
+function completeWayOfReceipt()
+{
+    
+    if (document.getElementById('pickup_info').style.display=='none')
+    {
+        document.cookie="shopid=0";
+     var country=document.getElementById('country').value;
+        if(!country) 
+        {alert("Не введена страна");
+        return;}
+    }
+    else 
+    {
+        if(!readCookie("shopid")) 
+        {alert("Не выбран магазин");
+            return;}
+    }
+    setWay();
+    next('way_of_receipt','confirmation');
+}
 
+function confirmationOrder(user)
+{
+    var shop=readCookie("shopid");
+    addInHistory(user,shop);
+    delCookie("shopid");
+    
+    next('confirmation','making');
+    }
+function readCookie(cookieName) {
+    var re = new RegExp('[; ]'+cookieName+'=([^\\s;]*)');
+    var sMatch = (' '+document.cookie).match(re);
+    if (cookieName && sMatch) return unescape(sMatch[1]);
+}
+function delCookie(name) {
+  document.cookie = name + "=" + "; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+}
+function addInHistory(user,shop)
+{
+    var xhr=new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8084/Febos2/DaoWorker?work=buy&user='+user+'&shop='+shop,false);
+          xhr.send();
+          
+        //alert("nen");
+        xhr.onreadystatechange = function() {
+            if (this.readyState !== 4) return;
+            if (this.status !== 200) {
+              alert('Error while removing item to order'+this.status);
+              return;
+            } 
+        }
+}

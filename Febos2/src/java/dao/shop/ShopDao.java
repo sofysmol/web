@@ -6,6 +6,7 @@
 package dao.shop;
 
 import dao.DaoInterface;
+import dao.TDao;
 import dao.shop.Shop;
 import java.util.List;
 import org.hibernate.Session;
@@ -18,8 +19,23 @@ import org.hibernate.cfg.Configuration;
  *
  * @author SofySmo
  */
-public class ShopDao implements DaoInterface<Shop, Integer> {
- private Session currentSession;
+public class ShopDao extends TDao<Shop,Integer> {
+    public Shop findById(Integer id) {
+      Shop shop = (Shop) getCurrentSession().get(Shop.class, id);
+        return shop;
+    }
+    @SuppressWarnings("unchecked")
+    public List<Shop> findAll() {
+        List<Shop> users = (List<Shop>) getCurrentSession().createQuery("from Shop").list();
+        return users;
+    }
+    public void deleteAll() {
+        List<Shop> entityList = findAll();
+        for (Shop entity : entityList) {
+            delete(entity);
+        }
+    } 
+ /*private Session currentSession;
     private Transaction currentTransaction;
     public ShopDao() {
     }
@@ -37,8 +53,16 @@ public class ShopDao implements DaoInterface<Shop, Integer> {
         currentSession.close();
     }
     public void closeCurrentSessionwithTransaction() {
+        try{
         currentTransaction.commit();
+        }catch(Exception e)
+        {
+            if(currentTransaction!=null) currentTransaction.rollback();
+            throw e;
+        }
+        finally{
         currentSession.close();
+        }  
     }
     private static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration().configure();
@@ -72,8 +96,8 @@ public class ShopDao implements DaoInterface<Shop, Integer> {
     
     @Override
     public Shop findById(Integer id) {
-      Shop book = (Shop) getCurrentSession().get(Shop.class, id);
-        return book;
+      Shop shop = (Shop) getCurrentSession().get(Shop.class, id);
+        return shop;
     }
     @Override
     public void delete(Shop entity) {
@@ -92,5 +116,5 @@ public class ShopDao implements DaoInterface<Shop, Integer> {
         for (Shop entity : entityList) {
             delete(entity);
         }
-    }   
+    }   */
 }
